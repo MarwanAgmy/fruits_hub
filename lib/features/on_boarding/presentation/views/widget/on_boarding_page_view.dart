@@ -5,11 +5,12 @@ import 'package:fruits_hub/core/utils/app_text_styles.dart';
 import 'package:fruits_hub/features/on_boarding/presentation/views/widget/page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
-  const OnBoardingPageView({super.key});
-
+  const OnBoardingPageView({super.key, required this.pageController});
+  final PageController pageController;
   @override
   Widget build(BuildContext context) {
     return PageView(
+      controller: pageController,
       children: [
         PageViewItem(
           image: Assets.imagesPageViewItem1Image,
@@ -33,12 +34,14 @@ class OnBoardingPageView extends StatelessWidget {
               ),
             ],
           ),
+          isVisible: true,
         ),
         PageViewItem(
           image: Assets.imagesPageViewItem2Image,
           subtitle: 'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
           bgImage: Assets.imagesPageViewItem2BackgroundImage,
           title: Text('ابحث وتسوق', style: AppTextStyles.bold23),
+          isVisible: false,
         ),
       ],
     );
