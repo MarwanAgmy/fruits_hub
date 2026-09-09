@@ -4,7 +4,7 @@ import 'package:fruits_hub/features/on_boarding/presentation/views/on_boarding_v
 import 'package:svg_flutter/svg.dart';
 
 class SplashViewBody extends StatefulWidget {
-  const new({super.key});
+  const SplashViewBody({super.key});
 
   @override
   State<SplashViewBody> createState() => _SplashViewBodyState();
@@ -18,12 +18,15 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = Localizations.localeOf(context).languageCode == 'ar';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: isArabic
+              ? MainAxisAlignment.end
+              : MainAxisAlignment.start,
           children: [SvgPicture.asset(Assets.imagesPlant)],
         ),
         Center(child: SvgPicture.asset(Assets.imagesLogo)),
