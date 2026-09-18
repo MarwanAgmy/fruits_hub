@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../features/auth/presentation/views/sign_up_view.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
 
@@ -16,10 +17,15 @@ class DontHaveAnAccountWidget extends StatelessWidget {
           style: AppTextStyles.semiBold16.copyWith(color: Color(0xff616A6B)),
         ),
         Text(' '),
-        Text(
-          'قم بإنشاء حساب ',
-          style: AppTextStyles.semiBold16.copyWith(
-            color: AppColors.primaryColor,
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, SignUpView.routeName);
+          },
+          child: Text(
+            'قم بإنشاء حساب ',
+            style: AppTextStyles.semiBold16.copyWith(
+              color: AppColors.primaryColor,
+            ),
           ),
         ),
       ],
