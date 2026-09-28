@@ -8,7 +8,8 @@ import 'package:fruits_hub/core/widget/custom_button.dart';
 import 'package:fruits_hub/core/widget/or_diveder.dart';
 import 'package:fruits_hub/core/widget/social_login_button.dart';
 
-import '../../../../../core/widget/dont_have_an_acount_widget.dart';
+import '../../../../../core/widget/have_ordont_have_an_acount_widget.dart';
+import '../sign_up_view.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -46,7 +47,13 @@ class LoginViewBody extends StatelessWidget {
             const SizedBox(height: 33),
             CustomButton(onPressed: () {}, title: 'تسجيل دخول'),
             const SizedBox(height: 33),
-            const DontHaveAnAccountWidget(),
+            HaveOrDontHaveAnAccountWidget(
+              title: 'لا تمتلك حساب؟',
+              title2: 'قم بإنشاء حساب ',
+              onTap: () {
+                Navigator.pushNamed(context, SignUpView.routeName);
+              },
+            ),
             const SizedBox(height: 33),
             const OrDivider(),
             const SizedBox(height: 16),
